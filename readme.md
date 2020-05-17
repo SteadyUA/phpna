@@ -56,6 +56,9 @@ trait { public \Foo\Bar $prop; }
 function(\Foo\Bar $bar)
 function($bar = \Foo\Bar::Baz)
 function(): \Foo\Baz
+/** @var \Foo\Bar */
+/** @param \Foo\Bar */
+/** @return \Foo\Bar */
 ```
 
 

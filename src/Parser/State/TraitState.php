@@ -9,12 +9,14 @@ class TraitState extends State
 {
     public function init(Reader $reader)
     {
-        $reader->readTo('{');
+        if ($reader->current()->eq(T_TRAIT)) {
+            $reader->readTo('{');
+        }
     }
 
     public function read(Reader $reader): ?string
     {
-        $reader->readTo(T_FUNCTION, T_VARIABLE, '}');
+        $reader->readTo(T_DOC_COMMENT, T_FUNCTION, T_VARIABLE, '}');
 
         return null;
     }
@@ -30,6 +32,9 @@ class TraitState extends State
         }
 
         switch ($reader->current()->code()) {
+            case T_DOC_COMMENT:
+                return new DocCommentState($reader->current()->text(), $this);
+
             case T_VARIABLE:
                 return new PropertyState($this);
 

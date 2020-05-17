@@ -32,7 +32,7 @@ class ClassState extends State
             return $implement->toString();
         }
 
-        $reader->readTo(T_FUNCTION, T_VARIABLE, T_CONST, T_USE, '}');
+        $reader->readTo(T_DOC_COMMENT, T_FUNCTION, T_VARIABLE, T_CONST, T_USE, '}');
 
         return null;
     }
@@ -48,6 +48,9 @@ class ClassState extends State
         }
 
         switch ($reader->current()->code()) {
+            case T_DOC_COMMENT:
+                return new DocCommentState($reader->current()->text(), $this);
+
             case T_VARIABLE:
                 return new PropertyState($this);
 

@@ -9,32 +9,32 @@ class DocCommentState extends State
 {
     private $list = [];
 
-    public function init(Reader $reader)
+    public function __construct($text, State $parent = null)
     {
+        parent::__construct($parent);
         $list = [];
-        $text = $reader->current()->text();
-        if (preg_match('/@(var|return|param)\s([^\s\$]+)/i', $text, $match)
-            && preg_match_all('/([\w\\\]+)/i', $match[2], $result) > 0
-        ) {
-            $list += $result[1];
+        if (preg_match_all('/@(var|return|param)\s([^\s\$]+)/i', $text, $match) > 0) {
+            foreach ($match[2] as $typeDefinition) {
+                if (preg_match_all('/([\w\d\\\]+)/i', $typeDefinition, $result) > 0) {
+                    $list = array_merge($list, $result[1]);
+                }
+            }
         }
-
         $this->list = array_unique($list);
     }
 
     public function read(Reader $reader): ?string
     {
-        if ($this->list) {
-            return array_shift($this->list);
+        if (count($this->list) == 1) {
+            $reader->next();
         }
-        $reader->next();
 
-        return null;
+        return array_shift($this->list);
     }
 
     public function suggestState(Reader $reader): ?State
     {
-        if ($reader->current()->eq(T_DOC_COMMENT)) {
+        if ($this->list) {
             return $this;
         }
 

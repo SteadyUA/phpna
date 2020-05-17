@@ -40,7 +40,7 @@ class GlobalScopeState extends State
                 return new ImportState($this);
 
             case T_DOC_COMMENT:
-                return new DocCommentState($this);
+                return new DocCommentState($reader->current()->text(), $this);
 
             case T_FUNCTION:
                 return new FunctionState($this);

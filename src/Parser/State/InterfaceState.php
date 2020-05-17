@@ -29,7 +29,7 @@ class InterfaceState extends State
             return $extends->toString();
         }
 
-        $reader->readTo(T_FUNCTION, T_CONST, '}');
+        $reader->readTo(T_DOC_COMMENT, T_FUNCTION, T_CONST, '}');
 
         return null;
     }
@@ -45,6 +45,9 @@ class InterfaceState extends State
         }
 
         switch ($reader->current()->code()) {
+            case T_DOC_COMMENT:
+                return new DocCommentState($reader->current()->text(), $this);
+
             case T_CONST:
                 return new ConstState($this);
 

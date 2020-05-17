@@ -93,7 +93,7 @@ class ValueState extends State
                 break;
 
             case T_DOC_COMMENT:
-                return new DocCommentState($this);
+                return new DocCommentState($reader->current()->text(), $this);
         }
 
         return $this;
