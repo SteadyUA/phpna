@@ -3,9 +3,32 @@ PHP Namespace Analyzer `phpna`.
 A utility for detecting dependencies on namespaces not described in the composer.json.
 
 ## Installation
+### Composer
+If you use Composer, you can install `phpna` system-wide with the following command:
+
+```
+composer global require "steady-ua/ns-analyzer=*"
+```
+
+Make sure you have the composer bin dir in your PATH. The default value is `~/.composer/vendor/bin/`, but you can check the value that you need to use by running `composer global config bin-dir --absolute`.
+
+Or alternatively, include a dependency for `steady-ua/ns-analyzer` in your `composer.json` file.
+
+```
+composer require steady-ua/ns-analyzer --dev
+```
+
+You will then be able to run from the vendor bin directory:
+
+```
+./vendor/bin/phpna
+```
+
+### Git Clone
 You can download the source and create a link.
 ```
-chmod +x ./bin/phpna
+git clone https://github.com/SteadyUA/phpna.git
+cd phpna
 ln -s ./bin/phpna ~/bin/phpna
 ```
 
