@@ -1,0 +1,14 @@
+{
+    "name": "steady-ua/ns-analyzer",
+    "type": "library",
+    "description": "A utility for detecting dependencies on namespaces not described in the composer.json.",
+    "homepage": "https://github.com/SteadyUA/phpna",
+    "autoload": {
+        "psr-4": {
+            "SteadyUa\\NsAnalyzer\\": "./src"
+        }
+    },
+    "require": {
+        "php": "^7.1"
+    }
+}
