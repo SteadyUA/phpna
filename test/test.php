@@ -11,10 +11,11 @@ foreach (glob(__DIR__ . '/case/*.php') as $fileName) {
         $res = runTest($phpCode, $expected);
         if (!$res) {
             echo "File: {$fileName}\n\n";
-            break;
+            exit(1);
         }
     }
 }
+exit(0);
 
 function runTest($phpCode, $expected) {
     $tokenizer = new Tokenizer();
