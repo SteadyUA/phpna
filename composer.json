@@ -8,7 +8,11 @@
             "SteadyUa\\NsAnalyzer\\": "./src"
         }
     },
+    "license": "BSD-3-Clause",
     "require": {
         "php": "^7.1"
-    }
+    },
+    "bin": [
+        "bin/phpna"
+    ]
 }
