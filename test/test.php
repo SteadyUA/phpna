@@ -5,6 +5,8 @@ include __DIR__ . '/../autoload.php';
 use SteadyUa\NsAnalyzer\Parser\{Parser, Reader, Tokenizer};
 use SteadyUa\NsAnalyzer\Parser\State\GlobalScopeState;
 
+set_time_limit(2);
+
 foreach (glob(__DIR__ . '/case/*.php') as $fileName) {
     $testCases = include $fileName;
     foreach ($testCases as [$phpCode, $expected]) {

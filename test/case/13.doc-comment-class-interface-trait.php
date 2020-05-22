@@ -21,9 +21,11 @@ class MyClass {
      * @return string $bar
      */
     function test2() {
+        /** @var \stdClass $prop2*/
+        $prop2;
     }
 }
-    ', ['Foo\Bar', '\Foo\Bar', '\Foo\Baz', 'int', 'null', 'string']
+    ', ['Foo\Bar', '\Foo\Bar', '\Foo\Baz', 'int', 'null', 'string', '\stdClass']
 ],
 [
     '<?php
@@ -33,7 +35,7 @@ trait MyTrait {
     
     /**
      * @param \Foo\Bar $attr
-     * @return \Foo\Baz $bar
+     * @throws \Foo\Baz $bar
      */
     function test($attr) {
         someCode();
@@ -41,14 +43,19 @@ trait MyTrait {
     
     /** @var int|null */
     public $prop2;
-    
+
+    /**
+     * empty and consecutive comments 
+     */
     /**
      * @return string $bar
      */
     function test2() {
+        /** @var \stdClass $prop2*/
+        $prop2;
     }
 }
-    ', ['Foo\Bar', '\Foo\Bar', '\Foo\Baz', 'int', 'null', 'string']
+    ', ['Foo\Bar', '\Foo\Bar', '\Foo\Baz', 'int', 'null', 'string', '\stdClass']
 ],
 [
     '<?php

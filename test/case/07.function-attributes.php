@@ -14,4 +14,12 @@ class Foo {
 function($prop1 = \Foo::class, $prop2 = [array([1]), Foo\Bar::BAZ]) {}
 function method2(?string $prop1, ?\Foo\Bar $prop2 = null) { }
 ?>', ['\Foo', 'Foo\Bar', 'string', '\Foo\Bar', 'null']],
+
+    ['<?php
+function(
+    $prop1 = \Foo::class,
+    $prop2 = [array([1]),Foo\Bar::BAZ],
+) {}
+function method2(?string $prop1, ?\Foo\Bar $prop2 = null,) { }
+?>', ['\Foo', 'Foo\Bar', 'string', '\Foo\Bar', 'null']],
 ];

@@ -9,5 +9,12 @@ new Test2\Name();
     ['<?php
 \Foo::bar(\Bar::class);
 new \Test;
-?>', ['\Foo', '\Bar', '\Test']],
+class Foo {
+    public function tst() {
+        $a = $this::bar();
+        $b = self::bar();
+        return static::class;
+    }
+}
+?>', ['\Foo', '\Bar', '\Test', '$this', 'self', 'static']],
 ];

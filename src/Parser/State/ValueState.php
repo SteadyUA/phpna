@@ -68,7 +68,7 @@ class ValueState extends State
                 break;
 
             case T_PAAMAYIM_NEKUDOTAYIM:
-                $nameSeq = $reader->matchLeft(T_NS_SEPARATOR, T_STRING);
+                $nameSeq = $reader->matchLeft(T_NS_SEPARATOR, T_STRING, T_STATIC, T_VARIABLE);
                 return $nameSeq->toString();
         }
 

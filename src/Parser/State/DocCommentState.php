@@ -13,7 +13,7 @@ class DocCommentState extends State
     {
         parent::__construct($parent);
         $list = [];
-        if (preg_match_all('/@(var|return|param)\s([^\s\$]+)/i', $text, $match) > 0) {
+        if (preg_match_all('/@(var|return|param|throws)\s([^\s\$]+)/i', $text, $match) > 0) {
             foreach ($match[2] as $typeDefinition) {
                 if (preg_match_all('/([\w\d\\\]+)/i', $typeDefinition, $result) > 0) {
                     $list = array_merge($list, $result[1]);
@@ -23,8 +23,19 @@ class DocCommentState extends State
         $this->list = array_unique($list);
     }
 
+    public function init(Reader $reader)
+    {
+        if (empty($this->list)) {
+            $reader->next();
+        }
+    }
+
     public function read(Reader $reader): ?string
     {
+        if (empty($this->list)) {
+            return null;
+        }
+
         if (count($this->list) == 1) {
             $reader->next();
         }
