@@ -56,6 +56,9 @@ class GlobalScopeState extends State
 
             case T_TRAIT:
                 return new TraitState($this);
+
+            case T_CATCH:
+                return new CatchState($this);
         }
 
         return $this;

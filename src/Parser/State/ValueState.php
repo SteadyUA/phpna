@@ -94,6 +94,9 @@ class ValueState extends State
 
             case T_DOC_COMMENT:
                 return new DocCommentState($reader->current()->text(), $this);
+
+            case T_CATCH:
+                return new CatchState($this);
         }
 
         return $this;

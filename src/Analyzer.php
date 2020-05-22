@@ -25,6 +25,7 @@ class Analyzer
                 foreach ($unknownList as $name) {
                     echo '  ', $name, PHP_EOL;
                 }
+                echo PHP_EOL;
                 $exitCode = 1;
             }
         }
