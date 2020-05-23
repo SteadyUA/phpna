@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 class Foo {
     function method1(): int {}
@@ -13,4 +13,4 @@ class Foo {
     public function method4() :?Foo\Baz {}
 }
 ?>', ['int', 'string', '\Foo\Bar', '\Bar', 'Foo\Bar', 'Foo\Baz']],
-];
+]];

@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 interface Foo { }
 ?>', []],
@@ -14,4 +14,4 @@ interface Foo { }
 final class Foo extends Bar { }
 interface Foo extends Baz { }
 ?>', ['Bar', 'Baz']],
-];
+]];

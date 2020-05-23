@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 class Foo {
     const TYPE1 = 1;
@@ -18,4 +18,4 @@ class Foo {
     use \Baz;
 }
 ?>', ['Bar', '\Foo\Bar', '\Foo', '\Baz']],
-];
+]];

@@ -2,4 +2,8 @@
 <?php
 include_once __DIR__ . '/../autoload.php';
 
+if (!defined('T_FN')) {
+    define('T_FN', -2);
+}
+
 exit((new SteadyUa\NsAnalyzer\Analyzer())->run());

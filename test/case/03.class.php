@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 class Foo { }
 ?>', []],
@@ -14,4 +14,4 @@ class Foo { }
 final class Foo extends Bar { }
 abstract class Foo extends \Bar implements Baz { }
 ?>', ['Bar', '\Bar', 'Baz']],
-];
+]];

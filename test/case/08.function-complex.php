@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 class Foo {
     function method1(array $prop1 = [], \Foo $prop2): int {
@@ -22,4 +22,4 @@ $b = new class extends \Foo {
 };
 ?>', ['\Foo', 'int', 'string', '\Foo\Bar', '\Bar', 'Foo\Bar']],
 
-];
+]];

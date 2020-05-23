@@ -86,6 +86,9 @@ class ValueState extends State
             case T_FUNCTION:
                 return new FunctionState($this);
 
+            case T_FN:
+                return new FnState($this);
+
             case T_CLASS:
                 if ($reader->left(1)->code() !== T_PAAMAYIM_NEKUDOTAYIM) {
                     return new ClassState($this);

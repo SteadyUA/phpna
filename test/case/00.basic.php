@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 $a = Test1::class;
 echo \Test3::$variable;
@@ -17,4 +17,4 @@ class Foo {
     }
 }
 ?>', ['\Foo', '\Bar', '\Test', '$this', 'self', 'static']],
-];
+]];

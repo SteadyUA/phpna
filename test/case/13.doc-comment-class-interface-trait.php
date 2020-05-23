@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
 [
     '<?php
 class MyClass {
@@ -73,4 +73,4 @@ interface MyInterface {
 }
     ', ['\Foo\Bar', '\Foo\Baz', 'bool']
 ],
-];
+]];

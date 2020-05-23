@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 use Test2\Foo\Bar,
     \Test2\Bar;
@@ -19,4 +19,4 @@ use function CodeParser\{
     Foo\Bar
 };
 ?>', ['\CodeParser\Parser', '\CodeParser\Foo\Reader', '\CodeParser\my_function', '\CodeParser\Foo\Bar']],
-];
+]];

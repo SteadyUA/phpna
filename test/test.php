@@ -6,10 +6,19 @@ use SteadyUa\NsAnalyzer\Parser\{Parser, Reader, Tokenizer};
 use SteadyUa\NsAnalyzer\Parser\State\GlobalScopeState;
 
 set_time_limit(2);
+if (!defined('T_FN')) {
+    define('T_FN', -2);
+}
 
 foreach (glob(__DIR__ . '/case/*.php') as $fileName) {
     $testCases = include $fileName;
-    foreach ($testCases as [$phpCode, $expected]) {
+    if (isset($testCases['minVer'])) {
+        if (version_compare(phpversion(), $testCases['minVer'], '<')) {
+            echo "Skipped: {$fileName}\n";
+            continue;
+        }
+    }
+    foreach ($testCases['case'] as [$phpCode, $expected]) {
         $res = runTest($phpCode, $expected);
         if (!$res) {
             echo "File: {$fileName}\n\n";

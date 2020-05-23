@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 class Foo {
     $prop1;
@@ -25,4 +25,4 @@ class Foo {
     private ?\Foo\Bar $prop3;
 }
 ?>', ['string', 'Bar', '\Foo\Bar']],
-];
+]];

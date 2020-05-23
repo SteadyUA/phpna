@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
     try {
         try {
@@ -25,4 +25,4 @@ return [
         }
     }', ['MyException', 'MyException1', 'MyOtherException']
     ],
-];
+]];

@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
 [
     '<?php
 /**
@@ -57,4 +57,4 @@ function main() {
 }
     ', ['Foo\Bar', 'string', 'int', 'Foo\Bar',  '\Foo']
 ],
-];
+]];

@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 interface Foo {
     const TYPE1 = 1;
@@ -22,4 +22,4 @@ interface Foo {
     protected const TYPE3 = [\Foo::CONST];
 }
 ?>', ['int', 'string', '\Foo\Bar', '\Bar', 'Foo\Bar', '\Foo']],
-];
+]];

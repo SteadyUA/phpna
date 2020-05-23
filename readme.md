@@ -61,6 +61,8 @@ function(): \Foo\Baz
 /** @param \Foo\Bar */
 /** @return \Foo\Bar */
 /** @throw \Foo\Bar */
+fn(\Foo\Bar $bar) =>
+fn($foo) : \Foo\Bar =>
 ```
 
 

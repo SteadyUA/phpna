@@ -1,5 +1,5 @@
 <?php
-return [
+return ['case' => [
     ['<?php
 trait Foo { }
 ?>', []],
@@ -15,4 +15,4 @@ trait Foo extends Baz, \Foo\Quz {
     public function method4($prop1, \Bar $prop2) :Foo\Bar;
 }
 ?>', ['Baz', '\Foo\Quz', '\Bar', 'Foo\Bar']],
-];
+]];
